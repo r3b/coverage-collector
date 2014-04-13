@@ -2,8 +2,9 @@ var cluster = require('cluster');
 var http = require("http");
 var connect = require('connect');
 var bodyParser = require('body-parser');
-
-function start(){
+function start(options){
+	options=options||{};
+	port=options.port||process.env['COLLECTOR_PORT']||3001;
 	if (cluster.isMaster) {
 		cluster.fork();
 		cluster.on('exit', function(worker, code, signal) {
@@ -28,7 +29,8 @@ function start(){
 		app.use(function(req, res){
 		    res.end();
 	  	});
-		http.createServer(app).listen(3000);
+		http.createServer(app).listen(port);
+		console.log("Collector started on port %d", port);
 	}
 }
 module.exports=start;
