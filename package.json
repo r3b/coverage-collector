@@ -1,0 +1,27 @@
+{
+  "name": "coverage-collector",
+  "version": "0.0.0",
+  "description": "A simple server for collecting code coverage objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/r3b/coverage-collector.git"
+  },
+  "keywords": [
+    "coverage",
+    "collector",
+    "istanbul"
+  ],
+  "author": "ryan bridges",
+  "license": "APLv2",
+  "bugs": {
+    "url": "https://github.com/r3b/coverage-collector/issues"
+  },
+  "dependencies": {
+    "connect": "~2.14.4",
+    "body-parser": "~1.0.1"
+  }
+}
