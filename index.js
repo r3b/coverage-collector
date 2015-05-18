@@ -8,8 +8,8 @@ function start(options) {
 	options = options || {};
 	port = options.port || process.env['COLLECTOR_PORT'] || 3001;
 	var app = connect();
-	app.use(bodyParser({
-		limit: '50mb'
+	app.use(bodyParser.json({
+		limit: '50mb' 
 	}));
 	app.use(function serveCoverageHandle(req, res, next) {
 		if (req.url.substr(1) === 'data' && req.method.toLowerCase() === 'get') {
